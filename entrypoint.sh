@@ -1,8 +1,6 @@
 #!/bin/bash
-#copy files to mounted folder /data
-shopt -s extglob
-mv /files/!(entrypoint.sh|backup_data_MC.sh) /data
-rm -R /files/!(entrypoint.sh)
+#creating a FULLBACKUPFOLDER
+mkdir ./FULLBACKUP
 #add timezone
 apk add tzdata
 cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime

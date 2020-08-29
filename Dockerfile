@@ -6,8 +6,6 @@ WORKDIR /files
 #adding backupscript, entrypointscript, the fixed extrautils2.cfg and the kill-process script to the container
 COPY backup_data_MC.sh \
 entrypoint.sh ./
-#creating a FULLBACKUPFOLDER\
-RUN mkdir ./FULLBACKUP
 
 #creating the actual container and copying all the files in to it
 FROM alpine:latest AS runtime

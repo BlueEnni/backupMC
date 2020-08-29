@@ -10,7 +10,7 @@ apk del tzdata
 # Add the cronjobs
 echo "${BACKUPDENSITYCRON}/files/backup_data_MC.sh" > /etc/crontabs/root
 # Start the crond process
-crond
+crond -f
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start crond: $status"

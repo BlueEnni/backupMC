@@ -27,5 +27,5 @@ ENV TIMEZONE=$timezone
 # Volumes for the external data (Server, World, Config...)
 VOLUME "/data"
 
-# Entrypoint with java optimisations
+# Entrypoint
 ENTRYPOINT /files/entrypoint.sh

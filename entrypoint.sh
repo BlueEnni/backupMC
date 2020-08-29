@@ -1,7 +1,7 @@
 #!/bin/bash
 #copy files to mounted folder /data
 shopt -s extglob
-mv /files/!(entrypoint.sh && backup_data_MC.sh) /data
+mv /files/!(entrypoint.sh|backup_data_MC.sh) /data
 rm -R /files/!(entrypoint.sh)
 #add timezone
 apk add tzdata

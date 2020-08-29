@@ -7,7 +7,7 @@ WORKDIR /files
 COPY backup_data_MC.sh \
 entrypoint.sh ./
 #creating a FULLBACKUPFOLDER\
-RUN mkdir ./FULLBACKUP ./
+RUN mkdir ./FULLBACKUP
 
 #creating the actual container and copying all the files in to it
 FROM alpine:latest AS runtime

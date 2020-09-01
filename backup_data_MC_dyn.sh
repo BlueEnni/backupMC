@@ -12,7 +12,7 @@ declare -a arrEXSISTINGBACKUPS=(*);
 echo "$BACKUPCOUNT=BACKUPCOUNT"
 declare -a arrWANTEDBACKUPS;
 for ((i = 0 ; i < BACKUPCOUNT ; i++)); do
-    WANTEDBACKUPNAME=$(date '+%Y%m%d_%H00' -d "$end_date-$i hours");
+    WANTEDBACKUPNAME=$(date '+%Y%m%d_%H00' -d "-$i hours");
     arrWANTEDBACKUPS=(${arrWANTEDBACKUPS[@]} "FULL_BACKUP_$WANTEDBACKUPNAME");
     echo "Keeping... ${arrWANTEDBACKUPS[$i]}";
 done

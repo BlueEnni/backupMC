@@ -21,6 +21,8 @@ RUN apk add --no-cache bash \
 
 ARG backupdensitycron="0 * * * * "
 ARG timezone=Europe/Berlin
+ARG backupcount="5"
+ENV BACKUPCOUNT=$backupcount
 ENV BACKUPDENSITYCRON=$backupdensitycron
 ENV TIMEZONE=$timezone
 

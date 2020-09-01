@@ -16,11 +16,35 @@ TAR=`which tar`
 NICE=`which nice`
 LOGINLINE="-uroot -p$ROOTPW"
 DATEONLY=`date +%Y%m%d_%H00`
-DAYOLD=`date '+%Y%m%d' -d "$end_date-5 days"`
-HOUROLD=`date '+%Y%m%d_%H00' -d "$end_date-5 hours"`
+ONEHOUROLD=`date '+%Y%m%d_%H00' -d "$end_date-1 hours"`
+TWOHOUROLD=`date '+%Y%m%d_%H00' -d "$end_date-2 hours"`
+THREEHOUROLD=`date '+%Y%m%d_%H00' -d "$end_date-3 hours"`
+FOURHOUROLD=`date '+%Y%m%d_%H00' -d "$end_date-4 hours"`
+FIVEHOUROLD=`date '+%Y%m%d_%H00' -d "$end_date-5 hours"`
 
-rm -r /data/FULLBACKUP/FULL_BACKUP_$HOUROLD
-rm -r /data/FULLBACKUP/FULL_BACKUP_$DAYOLD*
+#FULLBACKUP ARRAY - DELETING BACKUPS older than 5 hours
+cd /data/FULLBACKUP
+declare -a arrFULLBACKUP=(*);
+for dir in "${arrFULLBACKUP[@]}"; do
+	echo "$dir";
+	if [ $dir == FULL_BACKUP_$ONEHOUROLD ] ; then
+			echo "Keeping FULL_BACKUP_$ONEHOUROLD";
+	elif [ $dir == FULL_BACKUP_$TWOHOUROLD ] ; then
+			echo "Keeping FULL_BACKUP_$TWOHOUROLD";
+	
+	elif [ $dir == FULL_BACKUP_$THREEHOUROLD ] ; then
+			echo "Keeping FULL_BACKUP_$THREEHOUROLD";
+	
+	elif [ $dir == FULL_BACKUP_$FOURHOUROLD ] ; then
+			echo "Keeping FULL_BACKUP_$FOURHOUROLD";
+	
+	elif [ $dir == FULL_BACKUP_$FIVEHOUROLD ] ; then
+			echo "Keeping FULL_BACKUP_$FIVEHOUROLD";
+	
+	else
+		rm -r /data/FULLBACKUP/$dir;
+	fi;
+done
 
 function revertchanges {
 	rm -r /data/FULLBACKUP/FULL_BACKUP_$DATEONLY

@@ -5,6 +5,7 @@ WORKDIR /files
 
 #adding backupscript, entrypointscript, the fixed extrautils2.cfg and the kill-process script to the container
 COPY backup_data_MC.sh \
+backup_data_MC_dyn.sh \
 entrypoint.sh ./
 
 #creating the actual container and copying all the files in to it
